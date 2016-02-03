@@ -1,7 +1,6 @@
 body {
   overflow: hidden;
 }
-
 #animation-container {
   height: 720px;
   width: 1080px;
@@ -12,4 +11,46 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+}
+.intro #logo-left,
+.intro #logo-right {
+  width: 100px;
+  height: 150px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  animation: ease-in 1.2s infinite;
+}
+.intro #logo-left {
+  left: -100px;
+  animation-name: logo-left;
+  background-color: #455466;
+}
+@keyframes logo-left {
+  25% {
+    transform: translateX(540px);
+  }
+  80% {
+    transform: translateX(540px);
+  }
+  100% {
+    transform: translate(540px, -540px);
+  }
+}
+.intro #logo-right {
+  right: -100px;
+  animation-name: logo-right;
+  background-color: #f3615f;
+}
+@keyframes logo-right {
+  25% {
+    transform: translateX(-540px);
+  }
+  80% {
+    transform: translateX(-540px);
+  }
+  100% {
+    transform: translate(-540px, 540px);
+  }
 }

@@ -1,0 +1,53 @@
+//namespace
+.intro{
+  //variables
+  @left-logo-color: #455466;
+  @left-logo-keyframe: logo-left;
+  @right-logo-color: #f3615f;
+  @right-logo-keyframe: logo-right;
+  @logo-height: 150px;
+  @logo-width: 100px;
+
+  //`mixins
+  .logo-keyframes(@name:logo-movement, @dr:1) {
+    @keyframes @name {
+      0% { }
+      25% {
+        transform: translateX(@dr*(@container-width/2))
+      }
+      80% {
+        transform: translateX(@dr*(@container-width/2))
+      }
+      100% {
+        transform: translate(@dr*(@container-width/2), -1*(@dr*(@container-width/2)))
+      }
+    }
+  }
+
+  //less
+  #logo-left, #logo-right {
+    width: @logo-width;
+    height: @logo-height;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    animation: ease-in 1.2s infinite;
+  }
+
+  #logo-left{
+    left: -@logo-width;
+    animation-name: @left-logo-keyframe;
+    background-color: @left-logo-color;
+  }
+
+  .logo-keyframes(@left-logo-keyframe);
+
+  #logo-right{
+    right: -@logo-width;
+    animation-name: @right-logo-keyframe;
+    background-color: @right-logo-color;
+  }
+
+  .logo-keyframes(@right-logo-keyframe, -1);
+}

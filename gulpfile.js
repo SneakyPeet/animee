@@ -18,7 +18,7 @@ gulp.task('serve', function() {
 gulp.task('less-watch', ['animation-less'], reloadBrowser);
 
 gulp.task('animation-less', function() {
-    gulp.src('./animations/animations.less')
+    gulp.src('./animations/main.less')
             .pipe(less())
               .on('error', onError)
             .pipe(gulp.dest('./app/css'));
