@@ -1,0 +1,43 @@
+#logo-left,
+#logo-right {
+  width: 100px;
+  height: 150px;
+  top: 0;
+  bottom: 0;
+  right: 1080px;
+  margin: auto;
+  position: absolute;
+  animation: ease-in 1.2s 1;
+}
+#logo-left {
+  left: -100px;
+  animation-name: logo-left;
+  background-color: #455466;
+}
+#logo-right {
+  right: -100px;
+  animation-name: logo-right;
+  background-color: #f3615f;
+}
+@keyframes logo-left {
+  25% {
+    transform: translateX(540px);
+  }
+  80% {
+    transform: translateX(540px);
+  }
+  100% {
+    transform: translate(540px, -500px);
+  }
+}
+@keyframes logo-right {
+  25% {
+    transform: translateX(-540px);
+  }
+  80% {
+    transform: translateX(-540px);
+  }
+  100% {
+    transform: translate(-540px, 500px);
+  }
+}

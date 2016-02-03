@@ -1,0 +1,17 @@
+{
+  "name": "animee",
+  "version": "0.0.1",
+  "description": "Animations Using Css",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pieter Koornhof",
+  "license": "MIT"
+}
