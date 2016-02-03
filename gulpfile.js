@@ -1,28 +1,37 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var less = require('gulp-less');
+var concat = require('gulp-concat');
 
 var reload = browserSync.reload;
 
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./app/"
         }
     });
 
-    gulp.watch(["./*.html", "./animations/**/*.html", "./app/**/*.html"]).on('change', reload);
-    gulp.watch('./app/js/*.js').on('change', reload);
-    gulp.watch(["./animations/**/*.less", "./app/**/*.less"], ['less-watch'], reload);
+    gulp.watch(["./animations/**/*.html", "./app/**/*.html"]).on('change', reload);
+    gulp.watch('./src/js/*.js', ['js-watch']);
+    gulp.watch(["./animations/**/*.less", "./src/**/*.less"], ['less-watch']);
 });
 
 gulp.task('less-watch', ['less'], reloadBrowser);
 
 gulp.task('less', function() {
-    gulp.src('./app/less/main.less')
+    gulp.src('./src/less/main.less')
             .pipe(less())
               .on('error', onError)
-            .pipe(gulp.dest('./app/css'));
+            .pipe(gulp.dest('./app'));
+});
+
+gulp.task('js-watch', ['js'], reloadBrowser);
+
+gulp.task('js', function() {
+    return gulp.src(['./src/js/*.js'])
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('./app'))
 });
 
 gulp.task('default', ['serve']);

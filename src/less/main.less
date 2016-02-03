@@ -22,25 +22,5 @@ body {
   .centered();
 }
 
-#app-controls {
-  #toggle-video-view {
-    position: fixed;
-    left:50px;
-    top: 100vh - 10vh;
-    cursor: pointer;
-  }
-
-  .dark {
-    background-color: black;
-    z-index: 1000;
-    display: none;
-    .centered();
-
-    &.dark-left {
-      transform: translateX(100vw-@container-width);
-    }
-  }
-}
-
-
 @import "../../animations/animations.less";
+@import "video-view.less";

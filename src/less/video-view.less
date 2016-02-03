@@ -1,0 +1,23 @@
+#video-view {
+  z-index: 5000;
+  #toggle-video-view {
+    position: fixed;
+    right:100px;
+    top: 100vh - 10vh;
+    z-index: 5200
+  }
+
+  .dark {
+    background-color: black;
+    z-index: 1000;
+    display: none;
+    .centered();
+
+    &.dark-left {
+      transform: translateX(100vw-@container-width);
+    }
+  }
+}
+
+
+@import "../../animations/animations.less";
