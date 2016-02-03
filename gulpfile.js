@@ -7,18 +7,19 @@ var reload = browserSync.reload;
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: "./app/"
+            baseDir: "./"
         }
     });
 
-    gulp.watch('./app/*.html').on('change', reload);
-    gulp.watch("./animations/**/*.less", ['less-watch'], reload);
+    gulp.watch(["./*.html", "./animations/**/*.html", "./app/**/*.html"]).on('change', reload);
+    gulp.watch('./app/js/*.js').on('change', reload);
+    gulp.watch(["./animations/**/*.less", "./app/**/*.less"], ['less-watch'], reload);
 });
 
-gulp.task('less-watch', ['animation-less'], reloadBrowser);
+gulp.task('less-watch', ['less'], reloadBrowser);
 
-gulp.task('animation-less', function() {
-    gulp.src('./animations/main.less')
+gulp.task('less', function() {
+    gulp.src('./app/less/main.less')
             .pipe(less())
               .on('error', onError)
             .pipe(gulp.dest('./app/css'));

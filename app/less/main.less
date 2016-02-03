@@ -1,0 +1,46 @@
+@container-width: 1080px;
+@container-height: 720px;
+
+body {
+  overflow: hidden;
+}
+
+.centered() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#animation-container {
+  height: @container-height;
+  width: @container-width;
+  border: solid 1px black;
+  background-color: white;
+  .centered();
+}
+
+#app-controls {
+  #toggle-video-view {
+    position: fixed;
+    left:50px;
+    top: 100vh - 10vh;
+    cursor: pointer;
+  }
+
+  .dark {
+    background-color: black;
+    z-index: 1000;
+    display: none;
+    .centered();
+
+    &.dark-left {
+      transform: translateX(100vw-@container-width);
+    }
+  }
+}
+
+
+@import "../../animations/animations.less";
