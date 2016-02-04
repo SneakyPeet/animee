@@ -13,6 +13,11 @@ body {
   right: 0;
   left: 0;
 }
+#controls #toggle-bezier {
+  position: fixed;
+  right: 100px;
+  top: 80vh;
+}
 .intro #logo-left,
 .intro #logo-right {
   width: 100px;
@@ -21,7 +26,8 @@ body {
   bottom: 0;
   margin: auto;
   position: absolute;
-  animation: ease-in 1.2s infinite;
+  animation: linear 1.7s 5;
+  animation-delay: 1s;
 }
 .intro #logo-left {
   left: -100px;
@@ -29,14 +35,25 @@ body {
   background-color: #455466;
 }
 @keyframes logo-left {
-  25% {
-    transform: translateX(540px);
+  10% {
+    transform: translateX(540px) translateY(0);
+    animation-timing-function: ease;
+  }
+  20% {
+    transform: translateX(550px) scale(0.8, 1.15);
+  }
+  22% {
+    transform: translateX(540px) translateY(0);
+  }
+  70% {
+    transform: translateX(540px) translateY(0);
   }
   80% {
-    transform: translateX(540px);
+    transform: translateX(540px) translateY(-540px);
   }
   100% {
-    transform: translate(540px, -540px);
+    transform: translateX(540px) translateY(-540px);
+    animation-timing-function: cubic-bezier(0.3, 0.01, 0.88, 0.7);
   }
 }
 .intro #logo-right {
@@ -45,14 +62,25 @@ body {
   background-color: #f3615f;
 }
 @keyframes logo-right {
-  25% {
-    transform: translateX(-540px);
+  10% {
+    transform: translateX(-540px) translateY(0);
+    animation-timing-function: ease;
+  }
+  20% {
+    transform: translateX(-550px) scale(0.8, 1.15);
+  }
+  22% {
+    transform: translateX(-540px) translateY(0);
+  }
+  70% {
+    transform: translateX(-540px) translateY(0);
   }
   80% {
-    transform: translateX(-540px);
+    transform: translateX(-540px) translateY(540px);
   }
   100% {
-    transform: translate(-540px, 540px);
+    transform: translateX(-540px) translateY(540px);
+    animation-timing-function: cubic-bezier(0.3, 0.01, 0.88, 0.7);
   }
 }
 #video-view {
