@@ -26,8 +26,17 @@ body {
   bottom: 0;
   margin: auto;
   position: absolute;
-  animation: linear 1.7s 5;
+  animation: linear 1.7s 2;
   animation-delay: 1s;
+  color: white;
+}
+.intro #logo-left .logo-text,
+.intro #logo-right .logo-text {
+  line-height: 150px;
+  font-size: 100px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
 }
 .intro #logo-left {
   left: -100px;
@@ -48,11 +57,14 @@ body {
   70% {
     transform: translateX(540px) translateY(0);
   }
+  71% {
+    transform: translateX(540px) skewY(-10deg);
+  }
   80% {
-    transform: translateX(540px) translateY(-540px);
+    transform: translateX(540px) translateY(-540px) skewY(-10deg);
   }
   100% {
-    transform: translateX(540px) translateY(-540px);
+    transform: translateX(540px) translateY(-540px) skewY(0);
     animation-timing-function: cubic-bezier(0.3, 0.01, 0.88, 0.7);
   }
 }
@@ -75,11 +87,14 @@ body {
   70% {
     transform: translateX(-540px) translateY(0);
   }
+  71% {
+    transform: translateX(-540px) skewY(10deg);
+  }
   80% {
-    transform: translateX(-540px) translateY(540px);
+    transform: translateX(-540px) translateY(540px) skewY(10deg);
   }
   100% {
-    transform: translateX(-540px) translateY(540px);
+    transform: translateX(-540px) translateY(540px) skewY(0);
     animation-timing-function: cubic-bezier(0.3, 0.01, 0.88, 0.7);
   }
 }
@@ -92,9 +107,20 @@ body {
   top: 90vh;
   z-index: 5200;
 }
-#video-view .dark {
-  background-color: #303035;
+#video-view #toggle-video-view-color {
+  position: fixed;
+  right: 100px;
+  top: 80vh;
+  z-index: 5200;
+}
+#video-view .video-panel {
   z-index: 1000;
   display: none;
   position: absolute;
+}
+#video-view .video-panel.dark {
+  background-color: #303035;
+}
+#video-view .video-panel.light {
+  background-color: white;
 }

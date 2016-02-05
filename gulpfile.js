@@ -13,8 +13,8 @@ gulp.task('serve', function() {
     });
 
     gulp.watch(["./animations/**/*.html", "./app/**/*.html"]).on('change', reload);
-    gulp.watch('./src/js/*.js', ['js-watch']);
-    gulp.watch(["./animations/**/*.less", "./src/**/*.less"], ['less-watch']);
+    gulp.watch('./src/js/*.js', ['js-watch'], reload);
+    gulp.watch(["./animations/**/*.less", "./src/**/*.less"], ['less-watch'], reload);
 });
 
 gulp.task('less-watch', ['less'], reloadBrowser);
